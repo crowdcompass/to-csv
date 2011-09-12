@@ -4,8 +4,10 @@ require 'active_support/core_ext'
 require 'to_csv/csv_converter'
 
 module ToCSV
-  mattr_accessor :byte_order_marker, :locale, :primary_key, :timestamps
-  mattr_accessor :csv_options
+  class << self
+    attr_accessor :byte_order_marker, :locale, :primary_key, :timestamps
+    attr_accessor :csv_options
+  end
   self.csv_options = { :col_sep => ';', :encoding => 'UTF-8' }
 
   #
